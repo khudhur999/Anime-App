@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.example.khudhur.jikanapp.R
 import com.example.khudhur.jikanapp.adapters.AnimeFromCharAdapter
+import com.example.khudhur.jikanapp.adapters.NickNameAdapter
 import com.example.khudhur.jikanapp.models.Character
 import com.example.khudhur.jikanapp.models.CharactersAppearances
 import com.example.khudhur.jikanapp.utilities.Consts
@@ -39,6 +40,7 @@ class CharacterScrollingDetails : AppCompatActivity() {
             }
         }
         prepareRecyclers(character.anime)
+        prepareRecyclerName(character.alternativeNames)
     }
 
 
@@ -49,6 +51,10 @@ class CharacterScrollingDetails : AppCompatActivity() {
 
 
 
+    }
+    fun prepareRecyclerName (nickname : List<String> ){
+        nameRecyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        nameRecyclerView.adapter = NickNameAdapter(nickname)
     }
 
 
